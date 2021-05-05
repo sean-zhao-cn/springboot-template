@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50625
  Source Host           : localhost:3306
- Source Schema         : demo_webank
+ Source Schema         : demo_seanzhao
 
  Target Server Type    : MySQL
  Target Server Version : 50625

@@ -22,7 +22,7 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     private EmailSenderDecorator emailSenderDecorator;
 
-    @Value("${webank.email.manager.emailbox}")
+    @Value("${seanzhao.email.manager.emailbox}")
     private String managerEmailBox;
     /**
      * 发送慢查询邮件

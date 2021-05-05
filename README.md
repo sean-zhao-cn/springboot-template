@@ -10,11 +10,11 @@
 
 #### 请求处理流程图
 
-![image-20201024141445405](http://47.108.68.81/webank-demo/image-20201024141445405.png)
+![image-20201024141445405](http://47.108.68.81/seanzhao-demo/image-20201024141445405.png)
 
 #### 项目结构图
 
-![image-20201024142019563](http://47.108.68.81/webank-demo/image-20201024142019563.png)
+![image-20201024142019563](http://47.108.68.81/seanzhao-demo/image-20201024142019563.png)
 
 ### 所需环境
 
@@ -24,8 +24,8 @@
 ### 启动步骤
 
 1. 使用idea 用gradle项目的形式导入项目。
-2. 在MySQL数据库中新建 demo_webank 数据库，执行 SQL 初始化文件 ./documents/DBScripts/demo_webank.sql
-3. 进入 ./src/resources/application.yaml 中，将spring.datasource下的配置改为您自己数据库的配置，将webank.email.configuration下的配置改为您自己的邮箱配置。
+2. 在MySQL数据库中新建 demo_seanzhao 数据库，执行 SQL 初始化文件 ./documents/DBScripts/demo_seanzhao.sql
+3. 进入 ./src/resources/application.yaml 中，将spring.datasource下的配置改为您自己数据库的配置，将seanzhao.email.configuration下的配置改为您自己的邮箱配置。
 4. build gradle 项目。
 5. 启动springboot 项目。
 6. 您可以通过访问 http://localhost:8080/swagger-ui.html ，快速了解项目暴露的接口，输入相应参数进行测试。
@@ -34,7 +34,7 @@
 
 #### Response 在错误返回时产生raw type
 
- ![image-20201022192821142](http://47.108.68.81/webank-demo/image-20201022192821142.png)
+ ![image-20201022192821142](http://47.108.68.81/seanzhao-demo/image-20201022192821142.png)
 
 Response 的泛型指定的是其 data 属性的类型，但在异常返回 Response.ofError(code, message)时，不会为data 设值，此时会产生raw type问题。
 
@@ -42,7 +42,7 @@ Response 的泛型指定的是其 data 属性的类型，但在异常返回 Resp
 
 #### ExcelUtil中Consumer语意不清
 
-![image-20201022201228884](http://47.108.68.81/webank-demo/image-20201022201228884.png)
+![image-20201022201228884](http://47.108.68.81/seanzhao-demo/image-20201022201228884.png)
 
 这个方法将
 
@@ -62,17 +62,17 @@ Response 的泛型指定的是其 data 属性的类型，但在异常返回 Resp
 
 ##### 只添加标题行
 
-![image-20201022202037882](http://47.108.68.81/webank-demo/image-20201022202037882.png)
+![image-20201022202037882](http://47.108.68.81/seanzhao-demo/image-20201022202037882.png)
 
 ##### 添加标题行和数据行
 
-![image-20201022202255367](http://47.108.68.81/webank-demo/image-20201022202255367.png)
+![image-20201022202255367](http://47.108.68.81/seanzhao-demo/image-20201022202255367.png)
 
 该方法相邻的readExcelIntoObjects 也会有类似的问题。
 
 #### ClassUtil拷贝对象需要判空
 
-![image-20201022202503548](http://47.108.68.81/webank-demo/image-20201022202503548.png)
+![image-20201022202503548](http://47.108.68.81/seanzhao-demo/image-20201022202503548.png)
 
 这个方法会生成 targetClass 对应的对象，并将 source 中的属性拷贝到 对象中。
 
@@ -82,7 +82,7 @@ Response 的泛型指定的是其 data 属性的类型，但在异常返回 Resp
 
 #### HttpRequest使用UUID做主键
 
-![image-20201022203447978](http://47.108.68.81/webank-demo/image-20201022203447978.png)
+![image-20201022203447978](http://47.108.68.81/seanzhao-demo/image-20201022203447978.png)
 
 DataBaseOperatePO 选用 HttpRequestPO 的主键作为逻辑外键，但DataBaseOperatePO的保存时机往往在HttpRequestPO 之前。这里无法使用内置的自增主键来解决问题。作为一个可能产生大量数据的表，UUID虽然可以解决重复的问题，但也会为主键索引带来负担。之后可以选用其它轻量级的生成策略。
 

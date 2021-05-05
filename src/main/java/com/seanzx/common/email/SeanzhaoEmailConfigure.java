@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
  * @date 2020/10/24
  */
 @Component
-@ConfigurationProperties(prefix = "webank.email.configuration")
-public class WebankEmailConfigure extends EmailConfigure{
+@ConfigurationProperties(prefix = "seanzhao.email.configuration")
+public class SeanzhaoEmailConfigure extends EmailConfigure{
 
     private String username;
     /**

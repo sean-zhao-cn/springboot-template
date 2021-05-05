@@ -34,13 +34,13 @@ public class SlowRequestCheckTask {
     @Autowired
     private HttpRequestService httpRequestService;
 
-    @Value("${webank.slow-request.waterline:2000}")
+    @Value("${seanzhao.slow-request.waterline:2000}")
     private long slowRequestWaterline;
     /**
      * 定时检查较慢的HTTP请求，
      * 发送邮件通知管理人
      */
-    @Scheduled(cron = "${webank.slow-request.crontab:0 0 7 * * ?}")
+    @Scheduled(cron = "${seanzhao.slow-request.crontab:0 0 7 * * ?}")
     public void run() {
         try {
             logger.info("慢查询检查开始");
